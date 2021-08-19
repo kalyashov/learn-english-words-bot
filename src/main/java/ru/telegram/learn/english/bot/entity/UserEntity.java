@@ -18,6 +18,8 @@ public class UserEntity extends BaseEntity {
     @Column
     private UserLearningProcess learningProcess;
     @Column
+    private UserSettings userSettings;
+    @Column
     private LocalDateTime createdAt;
     @Column
     private LocalDateTime updatedAt;
@@ -29,8 +31,15 @@ public class UserEntity extends BaseEntity {
                                 String lastName,
                                 String userName,
                                 UserLearningProcess learningProcess) {
-        UserEntity userEntity = new UserEntity(
-                id, chatId, firstName, lastName, userName, learningProcess, LocalDateTime.now(), LocalDateTime.now()
+        UserEntity userEntity = new UserEntity(id,
+                chatId,
+                firstName,
+                lastName,
+                userName,
+                learningProcess,
+                UserSettings.defaultSettings(),
+                LocalDateTime.now(),
+                LocalDateTime.now()
         );
 
         userEntity.setIsNew(true);
@@ -38,7 +47,8 @@ public class UserEntity extends BaseEntity {
         return userEntity;
     }
 
-    public UserEntity(String id, String chatId, String firstName, String lastName, String userName, UserLearningProcess learningProcess,
+    public UserEntity(String id, String chatId, String firstName, String lastName, String userName,
+                      UserLearningProcess learningProcess, UserSettings userSettings,
                       LocalDateTime createdAt, LocalDateTime updatedAt) {
         super(id, false);
         this.chatId = chatId;
@@ -46,6 +56,7 @@ public class UserEntity extends BaseEntity {
         this.lastName = lastName;
         this.userName = userName;
         this.learningProcess = learningProcess;
+        this.userSettings = userSettings;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -84,6 +95,14 @@ public class UserEntity extends BaseEntity {
 
     public UserLearningProcess getLearningProcess() {
         return learningProcess;
+    }
+
+    public UserSettings getUserSettings() {
+        return userSettings;
+    }
+
+    public void setUserSettings(UserSettings userSettings) {
+        this.userSettings = userSettings;
     }
 
     public void setLearningProcess(UserLearningProcess learningStatus) {

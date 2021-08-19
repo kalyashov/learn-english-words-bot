@@ -1,16 +1,17 @@
-package ru.telegram.learn.english.bot.entity;
+package ru.telegram.learn.english.bot.entity.converter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.data.convert.ReadingConverter;
 import org.springframework.core.convert.converter.Converter;
 import org.postgresql.util.PGobject;
+import ru.telegram.learn.english.bot.entity.UserLearningProcess;
 
 @ReadingConverter
-public class UserEntityReadingConverter implements Converter<PGobject, UserLearningProcess> {
+public class UserLearningProcessReadingConverter implements Converter<PGobject, UserLearningProcess> {
 
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-    public UserEntityReadingConverter(ObjectMapper objectMapper) {
+    public UserLearningProcessReadingConverter(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 
