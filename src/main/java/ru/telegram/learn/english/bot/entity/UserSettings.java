@@ -5,6 +5,9 @@ public class UserSettings {
     private AudioType audioType;
     private AccessType accessType;
 
+    public UserSettings() {
+    }
+
     public UserSettings(WordsViewType wordsViewType, AudioType audioType, AccessType accessType) {
         this.wordsViewType = wordsViewType;
         this.audioType = audioType;

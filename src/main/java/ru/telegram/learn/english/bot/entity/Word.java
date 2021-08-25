@@ -16,16 +16,16 @@ public class Word extends BaseEntity {
     @Column
     private String emoji;
     @Column
-    private String audioLink;
+    private Audio audio;
 
-    public Word(String id, String word, String translation, String level, String partOfSpeech, String emoji, String audioLink) {
+    public Word(String id, String word, String translation, String level, String partOfSpeech, String emoji, Audio audio) {
         super(id, true);
         this.word = word;
         this.translation = translation;
         this.level = level;
         this.partOfSpeech = partOfSpeech;
         this.emoji = emoji;
-        this.audioLink = audioLink;
+        this.audio = audio;
     }
 
     @Override
@@ -65,12 +65,12 @@ public class Word extends BaseEntity {
         this.partOfSpeech = partOfSpeech;
     }
 
-    public String getAudioLink() {
-        return audioLink;
+    public Audio getAudio() {
+        return audio;
     }
 
-    public void setAudioLink(String audioLink) {
-        this.audioLink = audioLink;
+    public void setAudio(Audio audio) {
+        this.audio = audio;
     }
 
     public String getEmoji() {
