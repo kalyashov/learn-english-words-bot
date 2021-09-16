@@ -11,6 +11,7 @@ import java.util.HashMap;
 public class BotConfig {
 
     private Bot bot;
+    private Settings settings;
     private Messages messages;
     private HashMap<StickerId, String> stickers;
 
@@ -20,6 +21,14 @@ public class BotConfig {
 
     public void setBot(Bot bot) {
         this.bot = bot;
+    }
+
+    public Settings getSettings() {
+        return settings;
+    }
+
+    public void setSettings(Settings settings) {
+        this.settings = settings;
     }
 
     public Messages getMessages() {
@@ -59,6 +68,18 @@ public class BotConfig {
         }
     }
 
+    public static class Settings {
+        private Integer wordsPageSize;
+
+        public Integer getWordsPageSize() {
+            return wordsPageSize;
+        }
+
+        public void setWordsPageSize(Integer wordsPageSize) {
+            this.wordsPageSize = wordsPageSize;
+        }
+    }
+
     public static class Messages {
         private String startLearning;
         private String stopLearning;
@@ -69,6 +90,7 @@ public class BotConfig {
         private String commands;
         private String support;
         private String donate;
+        private String wordsFullAccess;
 
         public String getStartLearning() {
             return startLearning;
@@ -140,6 +162,14 @@ public class BotConfig {
 
         public void setDonate(String donate) {
             this.donate = donate;
+        }
+
+        public String getWordsFullAccess() {
+            return wordsFullAccess;
+        }
+
+        public void setWordsFullAccess(String wordsFullAccess) {
+            this.wordsFullAccess = wordsFullAccess;
         }
     }
 }
