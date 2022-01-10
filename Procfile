@@ -1,1 +1,1 @@
-web: java -jar target/learn-english-words-bot-0.0.1-SNAPSHOT.jar
+web: java -jar build/libs/learn-english-words-bot-0.0.1-SNAPSHOT.jar
