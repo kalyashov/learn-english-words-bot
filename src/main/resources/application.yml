@@ -2,9 +2,9 @@ spring:
   application:
     name: learn-english-words-bot
   datasource:
-    url: jdbc:postgresql://postgresql.j5321585.myjino.ru:5432/j5321585_tg_db
-    username: j5321585_tg_db_admin
-    password: tg_db_admin1357
+    url: jdbc:postgresql://188.225.44.33:5432/default_db
+    username: gen_user
+    password: 2q9dle70r
     hikari:
       maximum-pool-size: 8
       max-lifetime: 300000 #5 минут
@@ -12,11 +12,11 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/scripts/changelog-master.xml
-    url: jdbc:postgresql://postgresql.j5321585.myjino.ru:5432/j5321585_tg_db
-    user: j5321585_tg_db_admin
-    password: tg_db_admin1357
-    liquibase-schema: "learn_english_words_bot"
-    default-schema: "learn_english_words_bot"
+    url: jdbc:postgresql://188.225.44.33:5432/default_db
+    user: gen_user
+    password: 2q9dle70r
+    liquibase-schema: "public"
+    default-schema: "public"
   jackson:
     default-property-inclusion: non_null
 
