@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class SendWordsQuizScheduler {
 
-    private static final String CRON = "0 */10 * * * *";
+    private static final String CRON = "0 */60 * * * *";
     private final UserService userService;
     private final SendWordsQuizMessageBuilder actionBuilder;
     private final LearnEnglishWordsBot bot;

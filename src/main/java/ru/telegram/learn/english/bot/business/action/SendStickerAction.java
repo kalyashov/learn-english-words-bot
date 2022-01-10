@@ -15,7 +15,7 @@ public class SendStickerAction implements BotAction<SendSticker> {
 
     @Override
     public BotActionType getActionType() {
-        return BotActionType.SEND_MESSAGE;
+        return BotActionType.SEND_STICKER;
     }
 
     @Override

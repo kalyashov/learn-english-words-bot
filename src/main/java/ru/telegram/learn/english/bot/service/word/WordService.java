@@ -11,8 +11,7 @@ import ru.telegram.learn.english.bot.entity.Word;
 import ru.telegram.learn.english.bot.repository.WordRepository;
 import ru.telegram.learn.english.bot.service.user.UserService;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,5 +43,18 @@ public class WordService {
 
     public List<Word> getWordsByIds(List<String> wordIds) {
         return IterableUtils.toList(wordRepository.findAllById(wordIds));
+    }
+
+    public List<Word> getRandomWords(int wordsCount) {
+        List<String> randomWordIds = new ArrayList<>();
+        Integer maxWordId = wordRepository.getMaxWordId();
+        Random r = new Random();
+
+        for (int i = 0; i < wordsCount; i++) {
+            int randomWordId = r.nextInt(maxWordId - 1) + 1;
+            randomWordIds.add(String.valueOf(randomWordId));
+        }
+
+        return getWordsByIds(randomWordIds);
     }
 }

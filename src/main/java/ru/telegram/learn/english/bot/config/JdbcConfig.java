@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jdbc.core.convert.JdbcCustomConversions;
 import org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration;
-import ru.telegram.learn.english.bot.entity.UserEntityReadingConverter;
-import ru.telegram.learn.english.bot.entity.UserEntityWritingConverter;
+import ru.telegram.learn.english.bot.entity.converter.*;
 
 import java.util.Arrays;
 
@@ -18,7 +17,13 @@ public class JdbcConfig extends AbstractJdbcConfiguration {
     @Override
     @Bean
     public JdbcCustomConversions jdbcCustomConversions() {
-        return new JdbcCustomConversions(Arrays.asList(new UserEntityWritingConverter(objectMapper),
-                new UserEntityReadingConverter(objectMapper)));
+        return new JdbcCustomConversions(Arrays.asList(
+                new UserLearningProcessWritingConverter(objectMapper),
+                new UserLearningProcessReadingConverter(objectMapper),
+                new UserSettingWritingConverter(objectMapper),
+                new UserSettingsReadingConverter(objectMapper),
+                new WordAudioWritingConverter(objectMapper),
+                new WordAudioReadingConverter(objectMapper)
+        ));
     }
 }

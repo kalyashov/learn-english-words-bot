@@ -10,6 +10,9 @@ import java.util.List;
 @Repository
 public interface WordRepository extends CrudRepository<Word, String> {
 
-    @Query("SELECT ID FROM english_words")
+    @Query("select id from english_words")
     List<String> getAllWordIds();
+
+    @Query("select max(ID) from english_words")
+    Integer getMaxWordId();
 }

@@ -1,4 +1,4 @@
-package ru.telegram.learn.english.bot.business.command;
+package ru.telegram.learn.english.bot.business.bot;
 
 /**
  * Список команд, которые умеет обрабатывать бот
@@ -8,8 +8,8 @@ public enum Command {
     START("/start"),
     STOP("/stop"),
     WORDS("/words"),
+    SETTINGS("/settings"),
     INFO("/info"),
-    COMMANDS("/commands"),
     FULL_ACCESS("/full_access"),
     DONATE("/donate"),
     SUPPORT("/support"),

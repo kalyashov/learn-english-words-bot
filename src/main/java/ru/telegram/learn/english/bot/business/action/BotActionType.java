@@ -31,6 +31,11 @@ public enum BotActionType {
     SEND_POLL,
 
     /**
+     * Отредактировать разметку сообщения
+     */
+    EDIT_MESSAGE_REPLY_MARKUP,
+
+    /**
      *  Нет действия
      */
     NONE
