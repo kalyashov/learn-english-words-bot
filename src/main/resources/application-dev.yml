@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: learn-english-words-bot
+  datasource:
+    url: jdbc:postgresql://localhost:5432/learn_english_db
+    username: learn_english_db_client
+    password: learn_english_db_client
+  liquibase:
+    enabled: true
+    change-log: classpath:db/scripts/changelog-master.xml
+    url: jdbc:postgresql://localhost:5432/learn_english_db
+    user: learn_english_db_liquibase
+    password: learn_english_db_liquibase
+    liquibase-schema: "liquibase"
+    default-schema: "public"
+  jackson:
+    default-property-inclusion: non_null
+
+learn-english-words-bot:
+  bot:
+    name: "@NessyEnglishBot"
+    token:
+  scheduler:
+    send-words-cron: "0 */2 * * * *"
+    send-quiz-cron: "0 */3 * * * *"
+  payment:
+    provider-token:
