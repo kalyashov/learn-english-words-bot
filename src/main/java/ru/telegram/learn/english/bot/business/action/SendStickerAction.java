@@ -1,16 +1,20 @@
 package ru.telegram.learn.english.bot.business.action;
 
+import lombok.Data;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
+import ru.telegram.learn.english.bot.business.bot.StickerId;
 
 /**
  * Отправка стикера
  */
+@Data
 public class SendStickerAction implements BotAction<SendSticker> {
 
-    private final SendSticker ss;
+    private final SendSticker sendSticker;
 
-    public SendStickerAction(SendSticker ss) {
-        this.ss = ss;
+    public SendStickerAction(String chatId, String stickerId) {
+        sendSticker = new SendSticker(chatId, new InputFile(stickerId));
     }
 
     @Override
@@ -20,13 +24,6 @@ public class SendStickerAction implements BotAction<SendSticker> {
 
     @Override
     public SendSticker getAction() {
-        return ss;
-    }
-
-    @Override
-    public String toString() {
-        return "SendStickerAction{" +
-                "ss=" + ss +
-                '}';
+        return sendSticker;
     }
 }

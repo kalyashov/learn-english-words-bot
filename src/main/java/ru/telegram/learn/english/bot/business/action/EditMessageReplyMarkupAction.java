@@ -1,13 +1,22 @@
 package ru.telegram.learn.english.bot.business.action;
 
+import lombok.Data;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 
+/**
+ * Редактирование разметки сообщения
+ */
+@Data
 public class EditMessageReplyMarkupAction implements BotAction<EditMessageReplyMarkup> {
 
     private final EditMessageReplyMarkup editMessageReplyMarkup;
 
-    public EditMessageReplyMarkupAction(EditMessageReplyMarkup editMessageReplyMarkup) {
-        this.editMessageReplyMarkup = editMessageReplyMarkup;
+    public EditMessageReplyMarkupAction(String chatId, Integer messageId, InlineKeyboardMarkup keyboard) {
+        editMessageReplyMarkup = EditMessageReplyMarkup.builder()
+                .chatId(chatId)
+                .messageId(messageId)
+                .replyMarkup(keyboard).build();
     }
 
     @Override
@@ -18,12 +27,5 @@ public class EditMessageReplyMarkupAction implements BotAction<EditMessageReplyM
     @Override
     public EditMessageReplyMarkup getAction() {
         return editMessageReplyMarkup;
-    }
-
-    @Override
-    public String toString() {
-        return "EditMessageReplyMarkupAction{" +
-                "editMessageReplyMarkup=" + editMessageReplyMarkup +
-                '}';
     }
 }

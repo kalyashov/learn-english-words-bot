@@ -36,6 +36,11 @@ public enum BotActionType {
     EDIT_MESSAGE_REPLY_MARKUP,
 
     /**
+     * Отправка ответа на подготовку платежа
+     */
+    SEND_ANSWER_PRE_CHECKOUT,
+
+    /**
      *  Нет действия
      */
     NONE

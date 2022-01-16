@@ -1,17 +1,15 @@
 package ru.telegram.learn.english.bot.business.action;
 
+import lombok.Data;
 import org.telegram.telegrambots.meta.api.methods.send.SendInvoice;
 
 /**
  * Отправка счета для оплаты
  */
+@Data
 public class SendInvoiceAction implements BotAction<SendInvoice> {
 
-    private final SendInvoice si;
-
-    public SendInvoiceAction(SendInvoice si) {
-        this.si = si;
-    }
+    private final SendInvoice sendInvoice;
 
     @Override
     public BotActionType getActionType() {
@@ -20,13 +18,6 @@ public class SendInvoiceAction implements BotAction<SendInvoice> {
 
     @Override
     public SendInvoice getAction() {
-        return si;
-    }
-
-    @Override
-    public String toString() {
-        return "SendInvoiceAction{" +
-                "si=" + si +
-                '}';
+        return sendInvoice;
     }
 }

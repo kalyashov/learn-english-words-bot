@@ -4,6 +4,7 @@ import org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,6 +15,10 @@ public class CommandActions {
 
     public CommandActions() {
         this.actions = new ArrayList<>();
+    }
+
+    public CommandActions(BotAction<?> action) {
+        this.actions = Collections.singletonList(action);
     }
 
     public CommandActions(List<BotAction<? extends PartialBotApiMethod<Message>>> actions) {
@@ -31,5 +36,9 @@ public class CommandActions {
 
     public <T extends PartialBotApiMethod<?>> List<BotAction<?>> getActions() {
         return actions;
+    }
+
+    public static CommandActions empty() {
+        return new CommandActions(new ArrayList<>());
     }
 }

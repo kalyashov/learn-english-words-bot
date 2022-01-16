@@ -4,10 +4,24 @@ package ru.telegram.learn.english.bot.business.bot;
  * Типы callback
  */
 public enum CallbackType {
+    /**
+     * UK произношение
+     */
     SET_UK_AUDIO,
+
+    /**
+     * US произношение
+     */
     SET_US_AUDIO,
-    GET_FULL_ACCESS,
+
+    /**
+     * Отправка аудио
+     */
     GA,
+
+    /**
+     * Неизвестный тип
+     */
     UNKNOWN;
 
     public static CallbackType fromValue(String callbackRaw) {
