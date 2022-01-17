@@ -23,7 +23,9 @@ public class JdbcConfig extends AbstractJdbcConfiguration {
                 new UserSettingWritingConverter(objectMapper),
                 new UserSettingsReadingConverter(objectMapper),
                 new WordAudioWritingConverter(objectMapper),
-                new WordAudioReadingConverter(objectMapper)
+                new WordAudioReadingConverter(objectMapper),
+                new PaymentMetaDataWritingConverter(objectMapper),
+                new PaymentMetaDataReadingConverter(objectMapper)
         ));
     }
 }
