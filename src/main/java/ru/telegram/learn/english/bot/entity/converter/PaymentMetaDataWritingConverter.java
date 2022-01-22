@@ -6,16 +6,16 @@ import lombok.val;
 import org.postgresql.util.PGobject;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.convert.WritingConverter;
-import ru.telegram.learn.english.bot.entity.user.UserLearningProcess;
+import ru.telegram.learn.english.bot.entity.payment.PaymentMetaData;
 
 @WritingConverter
 @RequiredArgsConstructor
-public class UserLearningProcessWritingConverter implements Converter<UserLearningProcess, PGobject> {
+public class PaymentMetaDataWritingConverter implements Converter<PaymentMetaData, PGobject> {
 
     private final ObjectMapper objectMapper;
 
     @Override
-    public PGobject convert(UserLearningProcess source) {
+    public PGobject convert(PaymentMetaData source) {
         try {
             val jsonObject = new PGobject();
             jsonObject.setType("json");

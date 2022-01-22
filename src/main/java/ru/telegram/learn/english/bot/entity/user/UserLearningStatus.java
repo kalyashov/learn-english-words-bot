@@ -1,4 +1,4 @@
-package ru.telegram.learn.english.bot.entity;
+package ru.telegram.learn.english.bot.entity.user;
 
 public enum UserLearningStatus {
     ACTIVE,

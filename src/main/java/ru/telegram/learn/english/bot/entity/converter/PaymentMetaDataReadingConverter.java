@@ -6,19 +6,19 @@ import lombok.val;
 import org.postgresql.util.PGobject;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.convert.ReadingConverter;
-import ru.telegram.learn.english.bot.entity.word.WordAudioData;
+import ru.telegram.learn.english.bot.entity.payment.PaymentMetaData;
 
 @ReadingConverter
 @RequiredArgsConstructor
-public class WordAudioReadingConverter implements Converter<PGobject, WordAudioData> {
+public class PaymentMetaDataReadingConverter implements Converter<PGobject, PaymentMetaData> {
 
     private final ObjectMapper objectMapper;
 
     @Override
-    public WordAudioData convert(PGobject pgObject) {
+    public PaymentMetaData convert(PGobject pgObject) {
         try {
             val source = pgObject.getValue();
-            return objectMapper.readValue(source, WordAudioData.class);
+            return objectMapper.readValue(source, PaymentMetaData.class);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
