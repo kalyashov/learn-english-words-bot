@@ -46,28 +46,45 @@ public class BotConfig {
         private @Getter @Setter String donate;
         private @Getter @Setter String successFullAccessPayment;
         private @Getter @Setter String successDonatePayment;
+        private @Getter @Setter String failurePayment;
         private @Getter @Setter String wordsFullAccess;
         private @Getter @Setter String testPeriodOver;
     }
 
     public static class Payment {
+        private @Getter @Setter CommonPaymentSettings common;
+        private @Getter @Setter TelegramPaymentSettings telegram;
+        private @Getter @Setter UkassaPaymentSettings ukassa;
+    }
+
+    public static class CommonPaymentSettings {
+        private @Getter @Setter String currency;
+        private @Getter @Setter FullAccessPaymentSettings fullAccess;
+        private @Getter @Setter DonatePaymentPayment donate;
+    }
+
+    public static class TelegramPaymentSettings {
         private @Getter @Setter String providerToken;
-
-        private @Getter @Setter FullAccessPayment fullAccess;
-        private @Getter @Setter DonatePayment donate;
+        private @Getter @Setter Integer fullAccessAmount;
+        private @Getter @Setter List<Integer> donateAmounts;
     }
 
-    public static class FullAccessPayment {
-        private @Getter @Setter String title;
-        private @Getter @Setter String description;
-        private @Getter @Setter String currency;
-        private @Getter @Setter Integer amount;
+    public static class UkassaPaymentSettings {
+        private @Getter @Setter String baseUrl;
+        private @Getter @Setter String returnUrl;
+        private @Getter @Setter String secretKey;
+        private @Getter @Setter String shopId;
+        private @Getter @Setter String fullAccessAmount;
+        private @Getter @Setter String donateAmount;
     }
 
-    public static class DonatePayment {
+    public static class FullAccessPaymentSettings {
         private @Getter @Setter String title;
         private @Getter @Setter String description;
-        private @Getter @Setter String currency;
-        private @Getter @Setter List<Integer> amounts;
+    }
+
+    public static class DonatePaymentPayment {
+        private @Getter @Setter String title;
+        private @Getter @Setter String description;
     }
 }
